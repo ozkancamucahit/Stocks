@@ -1,10 +1,10 @@
-import { Stock } from '@/types';
-import { View, Text } from './Themed';
+import { Stock } from '@/src/components/StockListItem/Stock';
+import { View, Text } from '../Themed';
 import { StyleSheet, Pressable } from 'react-native';
 import Colors from '@/src/constants/Colors';
 import { AntDesign } from '@expo/vector-icons';
 import { Link } from 'expo-router';
-import { MonoText } from './StyledText';
+import { MonoText } from '../StyledText';
 
 type StockListItem = {
   stock: Stock;
@@ -26,6 +26,7 @@ const StockListItem = ({ stock }: StockListItem) => {
             {stock.name}
           </Text>
         </View>
+
         <View style={{ alignItems: 'flex-end', gap: 5 }}>
           <MonoText style={styles.price}>
             ${Number.parseFloat(stock.close).toFixed(1)}
