@@ -1,0 +1,4 @@
+configurationset:
+  - configuration:
+      name: authorize
+      Authorization: apikey INSERT_API_KEY
