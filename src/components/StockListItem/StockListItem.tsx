@@ -12,7 +12,7 @@ type StockListItem = {
 
 const StockListItem = ({ stock }: StockListItem) => {
   return (
-    <Link href={`/${stock.symbol}`} asChild>
+    <Link href={`/pages/StockDetail/${stock.symbol}`} asChild>
       <Pressable style={styles.container}>
         <View style={{ flex: 1, gap: 5 }}>
           <Text
