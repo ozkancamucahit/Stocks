@@ -1,3 +1,10 @@
-schema @sdl(files: ["quote/index.graphql", "time-series/index.graphql"]) {
+schema
+  @sdl(
+    files: [
+      "quote/index.graphql"
+      "time-series/index.graphql"
+      "postgresql/index.graphql"
+    ]
+  ) {
   query: Query
 }

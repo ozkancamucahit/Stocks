@@ -1,7 +1,3 @@
-
-
-
-
 type Meta {
   symbol: String
   interval: String
@@ -10,8 +6,8 @@ type Meta {
   exchange: String
   mic_code: String
   type: String
-
 }
+
 type ValuesEntry {
   datetime: String
   open: Float
@@ -28,12 +24,9 @@ type TimeSeries {
 }
 
 type Query {
-  timeSeries(
-  symbol: String
-  interval: String
-  ): TimeSeries
+  timeSeries(symbol: String, interval: String): TimeSeries
     @rest(
-    endpoint: "https://api.twelvedata.com/time_series"
-    configuration: "authorize"
+      endpoint: "https://api.twelvedata.com/time_series"
+      configuration: "authorize"
     )
 }

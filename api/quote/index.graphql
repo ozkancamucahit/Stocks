@@ -27,23 +27,29 @@ type Quote {
   symbol: String
   timestamp: Int
   volume: Date
+
+  favorite :  [Favorites] @materializer(
+    query : "favoritesByUser_idAndSymbol"
+    arguments: [{name: "symbol", field: "symbol"}, {name : "user_id", field:"symbol"}]
+
+    )
 }
 
-type Quotes{
-  name : String
-  value : Quote
+type Quotes {
+  name: String
+  value: Quote
 }
 
 type Query {
   quote(symbol: String): Quote
     @rest(
-    endpoint: "https://api.twelvedata.com/quote"
-    configuration: "authorize"
+      endpoint: "https://api.twelvedata.com/quote"
+      configuration: "authorize"
     )
   quotes(symbol: String): [Quotes]
     @rest(
-    endpoint: "https://api.twelvedata.com/quote"
-    configuration: "authorize"
-    transforms: [{pathpattern: ["<>*"], editor: "objectToArray"}]
+      endpoint: "https://api.twelvedata.com/quote"
+      configuration: "authorize"
+      transforms: [{ pathpattern: ["<>*"], editor: "objectToArray" }]
     )
 }

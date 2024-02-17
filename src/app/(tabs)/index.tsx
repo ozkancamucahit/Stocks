@@ -32,7 +32,7 @@ export default function TabOneScreen() {
       return <Text>Failed to fetch data</Text>
     }
 
-    console.log(data);
+    // console.log(data);
 
     const stocks = data.quotes.map((q) => q.value);
 
